@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Crear Nuevo Artículo</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Crear Nuevo Artículo</h1>
+		<br>
+		<form action="#" th:action="@{/guardar}" th:object="${articulo}"
+			method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Descripción:</td>
+					<td><input type="text" th:field="*{descripcionArticulo}" /></td>
+				</tr>
+				<tr>
+					<td>Precio unitario:</td>
+					<td><input type="text" th:field="*{precioUnidadArticulo}" /></td>
+				</tr>
+				<tr>
+					<td>Cantidad:</td>
+					<td><input type="text" th:field="*{cantidad}" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Guardar</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Gestión de Artículos</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Gestión de Artículos</h1>
+		<a href="nuevo">Crear nuevo artículo</a> <br> <br>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Código artículo</th>
+					<th>Descripción</th>
+					<th>Precio unitario</th>
+					<th>Cantidad</th>
+					<th>Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="articulo : ${listaArticulos}">
+					<td th:text="${articulo.codigoArticulo}">Código artículo</td>
+					<td th:text="${articulo.descripcionArticulo}">Descripción</td>
+					<td th:text="${articulo.precioUnidadArticulo}">Precio unitario</td>
+					<td th:text="${articulo.cantidad}">Cantidad</td>
+					<td><a th:href="@{'/editar/' + ${articulo.codigoArticulo}}">Editar</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a th:href="@{'/borrar/' + ${articulo.codigoArticulo}}">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
